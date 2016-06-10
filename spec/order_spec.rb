@@ -1,6 +1,6 @@
 describe Order do
   subject(:order){described_class.new(menu)}
-  let(:menu){double(:menu)}
+  let(:menu){instance_double('Menu')}
 
   let(:dishes) do
     {
@@ -23,7 +23,7 @@ describe Order do
 
     it 'only allows dishes from menu to be added' do
       allow(menu).to receive(:has_dish?).with(:pizza).and_return(false)
-      expect{order.add(:pizza, 2)}.to raise_error('Pizza is not on the menu')
+      expect{order.add(:pizza, 2)}.to raise_error(NoItemError, 'Pizza is not on the menu')
     end
   end
 end

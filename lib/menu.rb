@@ -21,7 +21,6 @@ class Menu
     end.join(", ")
   end
 
-  private
   def has_dish?(dish)
     @dishes.has_key?(dish)
   end

@@ -17,6 +17,17 @@ describe Menu do
     end
   end
 
+  describe '#has_dish?' do
+    it 'checks dish is on the menu' do
+      allow(menu).to receive(:has_dish?).with(:pizza).and_return(true)
+      expect(menu.has_dish?(:pizza)).to eq(true)
+    end
+
+    it 'checks for dish not on the menu' do
+      expect(menu.has_dish?(:pizza)).to eq(false)
+    end
+  end
+
   describe '#remove_dish' do
     it 'removes a dish from dishes' do
       menu.remove_dish(:burger)

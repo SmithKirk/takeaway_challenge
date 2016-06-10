@@ -2,8 +2,8 @@ describe Takeaway do
 
   subject(:takeaway){described_class.new(menu: menu, order: order)}
 
-  let(:menu){double(:menu, print_menu: printed_menu)}
-  let(:order){double(:order)}
+  let(:menu){instance_double('Menu', print_menu: printed_menu)}
+  let(:order){instance_double('Order')}
   let(:printed_menu){'Burger £3.00, Chips £1.50'}
 
   describe '#view_menu' do
