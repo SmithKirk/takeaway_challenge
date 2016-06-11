@@ -44,4 +44,10 @@ describe Menu do
       expect(menu.print_menu).to eq ('Burger £3.00, Chips £1.50')
     end
   end
+
+  describe '#price' do
+    it 'gets the price of a dish' do
+      expect(menu.price(:burger)).to eq(dishes[:burger])
+    end
+  end
 end

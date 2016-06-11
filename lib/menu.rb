@@ -12,7 +12,7 @@ class Menu
 
   def remove_dish(dish)
     raise 'Error: That dish is not on the menu' unless has_dish?(dish)
-    @dishes.delete(dish)
+    @dishes.delete(dish.to_sym)
   end
 
   def print_menu
@@ -22,6 +22,10 @@ class Menu
   end
 
   def has_dish?(dish)
-    @dishes.has_key?(dish)
+    @dishes.has_key?(dish.to_sym)
+  end
+
+  def price(dish)
+    @dishes[dish.to_sym]
   end
 end
